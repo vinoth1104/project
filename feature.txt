@@ -1,0 +1,8 @@
+
+Feature: Search information in ortho search
+  Scenario: finding articles regarding knee in ortho search website
+    Given user launches the browser and navigates to the ortho search page
+    When user searches about knee in website and clicks search
+    And user clicks basic science checkbox and clicks the Articles
+    And user prints the necessary information
+    Then user closes the browser

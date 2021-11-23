@@ -1,0 +1,37 @@
+public class Login {
+	WebDriver driver;
+	@Given("user launches the browser and navigates to the ortho search page")
+	public void user_launches_the_browser_and_navigates_to_the_ortho_search_page() {
+		WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();
+		driver.get("https://orthosearch.org.uk/Home");
+	}
+	@When("user searches about knee in website and clicks search")
+	public void user searches_about_knee_in_website_and_clicks_search() {
+		driver.findElement(By.xpath("//input[@aria-label='Search Bar']")).sendKeys("knee",Keys.ENTER);
+	}
+	
+	@When("user clicks basic science checkbox and clicks the Articles")
+	public void user_clicks_basic_science_checkbox_and_clicks_the_Articles() {
+		driver.findElement(By.xpath("//button[text()='Articles']")).click();
+		driver.findElement(By.id("Basic science306220")).click();    
+	}
+
+	@When("user prints the necessary information")
+	public void user_prints_the_necessary_information() {
+		WebElement results = driver.findElement(By.xpath("//label[@class='ActionBar_actionLabel__1wGlV form-label']"));
+		String text = results.getText();
+		System.out.println(text);
+		WebElement text1 = driver.findElement(By.xpath("//p[contains(@class,'Article_abstractDiv__3yRKh mb-2')]"));
+	    String text2 = text1.getText();
+	    System.out.println("text2");
+	}
+		
+	@Then("user closes the browser")
+	public void user_closes_the_browser() {
+		driver.quit();
+		
+	}
+
+
+}
