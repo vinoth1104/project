@@ -1,6 +1,0 @@
-@RunWith(Cucumber.class)
-@CucumberOptions(features = {"src\\test\\resources"}, glue = {"com.stepdefenition"}, monochrome =true, plugin = {"pretty"})
-
-public class Testrrunner {
-
-}
